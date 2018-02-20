@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+
+        <link rel="stylesheet" href="index.css"/>
+
+    </head>
+    <body>
+        <div id="card">
+            <div id="card-inside">
+                <div class="wrap">
+                    <p>Mira primero este</p>
+                    <iframe width="444" height="250" src="https://www.youtube.com/embed/Nq8TasNsgKw?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <p>Y ahora este</p>
+                    <iframe width="444" height="250" src="https://www.youtube.com/embed/UHFtTkVjfe8?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <p>Te amo muchísimo...aunque no sepa decir las palabras correctas...
+                        pienso en ti y te extraño un montón...
+                        quisiera tanto estar ahora contigo...</p>
+                    <div class="heart-wrapper">
+                        <div class="heart"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="card-front">
+                <div class="wrap">
+                    <h1>Happy Birthday!</h1>
+                    <div class="pug">
+                        <div class="texto">
+                            <p>I'm too far for a </p>
+                            <p class="special">hug</p>
+                            <p>So I sent you a </p>
+                            <p class="special special-pug">pug</p>
+                        </div>
+                    </div>
+                </div>
+                <button id="open">&gt;</button>
+                <button id="close">&lt;</button>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            (function () {
+                function $(id) {
+                    return document.getElementById(id);
+                }
+
+                var card = $('card'),
+                    openB = $('open'),
+                    closeB = $('close'),
+                    timer = null;
+                console.log('wat', card);
+                openB.addEventListener('click', function () {
+                    card.setAttribute('class', 'open-half');
+                    if (timer) {
+                        clearTimeout(timer);
+                    }
+                    timer = setTimeout(function () {
+                        card.setAttribute('class', 'open-fully');
+                        timer = null;
+                    }, 1000);
+                });
+
+                closeB.addEventListener('click', function () {
+                    card.setAttribute('class', 'close-half');
+                    if (timer) {
+                        clearTimerout(timer);
+                    }
+                    timer = setTimeout(function () {
+                        card.setAttribute('class', '');
+                        timer = null;
+                    }, 1000);
+                });
+
+            }());
+
+        </script>
+
+
+    </body>
+</html>
